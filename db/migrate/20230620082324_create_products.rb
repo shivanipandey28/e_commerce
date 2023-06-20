@@ -8,7 +8,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :quantity
       t.boolean :status
       t.integer :rating
-
       t.timestamps
     end
   end
