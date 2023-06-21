@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
     if params[:category].blank?
       @products = Product.all
@@ -53,7 +54,7 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
-      :status, :quantity, :category_id)
+      :status, :quantity, :category_id,:role)
   end
 
 end

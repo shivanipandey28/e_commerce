@@ -1,12 +1,17 @@
+<% if user_signed_in? %>
+  <div> Welcome  to <%= current_user.email %> </div> <br>
+<% end %>
+
 <h1> Products <h1>
 <ul>
   <% @products.each do |product| %>
     <li>
       <%= link_to product.name, product %>
     </li>
-  <% end %>
+  <% end %><br>
   <%= link_to "Create New product", new_product_path,@product %>
 </ul>
+
 <% if user_signed_in? %>
   <%= link_to "Sign out",destroy_user_session_path, method: :delete%>
   <% else %>
