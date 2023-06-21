@@ -9,13 +9,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
+   <body>
     <% Category.all.each do |category| %>
-          <li>
-            <%= link_to category.name, products_path(category: category.name) %>
-          </li>
+        <li>
+          <%= link_to category.name, products_path(category: category.name) %>
+        </li>
         <% end %>
         <%= yield %>
-  </body>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </body>
 </html>
