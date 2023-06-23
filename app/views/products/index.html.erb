@@ -1,7 +1,6 @@
 <% if user_signed_in? %>
   <div> Welcome  to <%= current_user.email %> </div> <br>
 <% end %>
-
 <h1> Products <h1>
 <ul>
   <% @products.each do |product| %>

@@ -3,12 +3,7 @@ class ProductsController < ApplicationController
 
 
   def index
-    if params[:category].blank?
       @products = Product.all
-    else
-      @category_id = Category.find_by(name: params[:category]).id
-      @products = Product.where(category_id: @category_id).order("created_at DESC")
-  end
   end
 
 
@@ -54,7 +49,7 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
-      :status, :quantity, :category_id,:role)
+      :status, :quantity, :category_id, :role)
   end
 
 end

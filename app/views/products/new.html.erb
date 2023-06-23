@@ -2,9 +2,11 @@
 <p> Please Choose the category first<P>
 
 <%= form_with model: @product do |form| %>
+
 <div>
 <%= form.collection_select :category_id, Category.all,:id, :name,
 {promt: "Choose a category"} %>
+
 </div>
 
   <div>
