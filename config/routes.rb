@@ -6,3 +6,4 @@ end
   root "products#index"
   resources :products
 end
+

@@ -3,24 +3,27 @@ class ProductsController < ApplicationController
 
 
   def index
+    if current_user.admin?
+      @users = User.where(role:"seller")
       @products = Product.all
+    end
   end
 
-  def show 
+  def show
     @product =Product.find(params[:id])
   end
 
   def new
-    @product = Product.new
+    @product = current_user.products.new
   end
 
-  def create 
-    @product = Product.new(product_params)
+  def create
+    @products = current_user.products.new(product_params)
 
-     if @product.save
-      redirect_to @product
+     if @products.save
+      redirect_to @products
      else
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,13 +31,13 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def update   
+  def update
     @product = Product.find(params[:id])
 
      if @product.update(product_params)
       redirect_to @product
      else
-      render :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -44,11 +47,14 @@ class ProductsController < ApplicationController
 
     redirect_to root_path, status: :see_other
   end
+   
+  def test
+  end
 
   private
   def product_params
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
-      :status, :quantity, :category_id, :role)
+      :status, :quantity, :category_id, :user_id,:role)
   end
 
 end
