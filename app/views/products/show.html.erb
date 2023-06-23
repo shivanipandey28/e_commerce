@@ -6,12 +6,13 @@
 <%= @product.rating %><br>
 <%= @product.status %><br>
 <%= @product.quantity%><br>
+
 <ul>
+  <% if current_user && current_user.seller? %>
   <li><%= link_to "Edit", edit_product_path(@product) %></li>
   <li><%= link_to "Destroy", product_path(@product), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-                  
-
+<% end %>
 </ul>

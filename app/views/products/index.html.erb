@@ -1,6 +1,12 @@
 <% if user_signed_in? %>
-  <div> Welcome  to <%= current_user.email %> </div> <br>
+ <div> Welcome  to <%= current_user.email %> </div> <br>
+<% if current_user && current_user.seller? %>
+  <p>Welcome, seller!</p>
+  <%= link_to "Create New product", new_product_path,@product %>
+<% else%>
+<p>Welcome, buyer user!</p>
 <% end %>
+
 <h1> Products <h1>
 <ul>
   <% @products.each do |product| %>
@@ -8,12 +14,12 @@
       <%= link_to product.name, product %>
     </li>
   <% end %><br>
-  <%= link_to "Create New product", new_product_path,@product %>
 </ul>
+<% end %>
 
 <% if user_signed_in? %>
   <%= link_to "Sign out",destroy_user_session_path, method: :delete%>
   <% else %>
   <%= link_to "Sign in", new_user_session_path  %>
-  <% end %>
+<% end %>
 
