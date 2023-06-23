@@ -4,12 +4,11 @@
  <p> Here is the list of all seller!!!<p>
   <% @users.each do |user| %>
   <li>
-    <%= user.email %>
+    <%= user.email%>
   </li>
   <% end %>
 <% else %>
-
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
    <div> Welcome  to <%= current_user.email %> </div> <br>
   <% if current_user && current_user.seller? %>
     <p>Welcome, seller!</p>
@@ -30,6 +29,7 @@
   <% end %>
 <% end %>
 <br>
+
 <% if user_signed_in? %>
   <%= link_to "Sign out",destroy_user_session_path, method: :delete%>
   <% else %>

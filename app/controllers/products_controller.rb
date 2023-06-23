@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
   def index
     if current_user.admin?
       @users = User.where(role:"seller")
-    end
       @products = Product.all
+    end
   end
 
   def show
@@ -46,6 +46,9 @@ class ProductsController < ApplicationController
     @product.destroy
 
     redirect_to root_path, status: :see_other
+  end
+   
+  def test
   end
 
   private
