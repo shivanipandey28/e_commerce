@@ -7,6 +7,12 @@
 <%= @product.status %><br>
 <%= @product.quantity%><br>
 
+<% if current_user.buyer? %>
+  <%= link_to "Buy"  %><br>
+  <%= link_to "Add to Cart" %>
+<% end %>
+
+
 <ul>
   <% if current_user && current_user.seller? %>
   <li><%= link_to "Edit", edit_product_path(@product) %></li>

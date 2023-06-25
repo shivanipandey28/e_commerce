@@ -3,19 +3,12 @@ class ProductsController < ApplicationController
 
 
   def index
-     if current_user.admin?
-      @users = User.where(role: "seller")
-      @products = Product.all
-    elsif current_user.seller?
-      @products = current_user.products
-    else
-      @products = Product.all
-    end
-     @product_count = @products.count
-  end
+     @products = Product.all
+     @users = User.where(role: "seller")
+   end
 
   def show
-    @product =Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -23,10 +16,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @products = current_user.products.new(product_params)
-
-     if @products.save
-      redirect_to @products
+    @product = current_user.product.new(product_params)
+     if @product.save
+      redirect_to @product, notice: "Product created successfully."
      else
       render :new, status: :unprocessable_entity
     end
@@ -40,9 +32,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
      if @product.update(product_params)
-      redirect_to @product
+      redirect_to @product, notice: "Product updated successfully."
      else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -50,10 +42,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
 
-    redirect_to root_path, status: :see_other
-  end
-   
-  def test
+    redirect_to root_path, status: :see_other, notice: "Product deleted successfully."
   end
 
   private
