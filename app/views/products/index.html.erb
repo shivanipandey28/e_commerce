@@ -1,38 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My E-commerce Website</title>
+  <style>
+    /* CSS Styling for Navigation Bar */
+    nav {
+      background-color: #2874f0;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-<% if current_user.admin? %>
- <div> Welcome  to Admin <%= current_user.email %> </div> <br>
- <p> Here is the list of all seller!!!<p>
-  <% @users.each do |user| %>
-  <li>
-    <%= user.email%>
-  </li>
-  <% end %>
-<% else %>
-<% if user_signed_in? %>
-   <div> Welcome  to <%= current_user.email %> </div> <br>
-  <% if current_user && current_user.seller? %>
-    <p>Welcome, seller!</p>
-    <p>You Have Created Total Products: <%= @product_count %></p>
-    <%= link_to "Create New product", new_product_path,@product %>
-  <% else %>
-  <p>Welcome, buyer user!</p>
-  <% end %>
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
 
-  <h1> Products <h1>
-  <ul>
-    <% @products.each do |product| %>
-      <li>
-        <%= link_to product.name, product %>
-      </li>
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* CSS Styling for Content */
+    .container {
+      margin: 20px;
+    }
+
+    .welcome-message {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .product-list {
+      margin-top: 20px;
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .product-list li {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      width: 200px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .product-list li a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .product-list li a:hover {
+      color: #2874f0;
+    }
+
+    .create-product-button {
+      background-color: #2874f0;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .create-product-button:hover {
+      background-color: #1356b7;
+    }
+
+    .sign-out-link,
+    .sign-in-link {
+      color: #2874f0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">My E-commerce Website</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Categories</a></li>
+      <li><a href="#">Deals</a></li>
+      <li><a href="#">My Orders</a></li>
+      <li><a href="#">Account</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <% if current_user.admin? %>
+      <div class="welcome-message">Welcome to Admin <%= current_user.email %></div><br>
+      <p>Here is the list of all sellers:</p>
+      <ul class="user-list">
+        <% @users.each do |user| %>
+          <li><%= user.email %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <% if user_signed_in? %>
+        <div class="welcome-message">Welcome to <%= current_user.email %></div><br>
+        <% if current_user && current_user.seller? %>
+          <p>Welcome, seller!</p>
+          <p>You have created a total of <%= @product_count %> products.</p>
+          <a href="<%= new_product_path %>" class="create-product-button">Create New Product</a>
+        <% else %>
+          <p>Welcome, buyer user!</p>
+        <% end %>
+        <h1>Products</h1>
+        <ul class="product-list">
+          <% @products.each do |product| %>
+            <li>
+              <%= link_to product.name, product %>
+              <p>$<%= product.price %></p>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
     <br>
-  </ul>
-  <% end %>
-<% end %>
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to "Sign out",destroy_user_session_path, method: :delete%>
-  <% else %>
-  <%= link_to "Sign in", new_user_session_path  %>
-<% end %>
+    <% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign-out-link" %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path, class: "sign-in-link" %>
+    <% end %>
+  </div>
+</body>
+</html>
