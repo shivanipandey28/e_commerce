@@ -3,10 +3,15 @@ class ProductsController < ApplicationController
 
 
   def index
-    if current_user.admin?
-      @users = User.where(role:"seller")
+     if current_user.admin?
+      @users = User.where(role: "seller")
+      @products = Product.all
+    elsif current_user.seller?
+      @products = current_user.products
+    else
       @products = Product.all
     end
+     @product_count = @products.count
   end
 
   def show
