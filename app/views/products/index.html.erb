@@ -103,7 +103,7 @@
   </nav>
 
   <div class="container">
-    <% if current_user.role == "admin" %>
+    <% if current_user.admin? %>
       <div class="welcome-message">Welcome to Admin <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
       <ul class="user-list">
@@ -114,7 +114,7 @@
     <% else %>
       <% if user_signed_in? %>
         <div class="welcome-message">Welcome to <%= current_user.email %></div><br>
-        <% if current_user && current_user.role == "seller" %>
+        <% if current_user && current_user.seller? %>
           <p>Welcome, seller!</p>
           <p>You have created a total of <%= @product_count %> products</p>
           <a href="<%= new_product_path %>" class="create-product-button">Create New Product</a>
