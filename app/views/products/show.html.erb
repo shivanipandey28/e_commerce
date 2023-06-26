@@ -28,7 +28,7 @@
         <p>Status: <%= @product.status %></p>
         <p>Quantity: <%= @product.quantity %></p>
         <% if current_user.role =="buyer" %>
-          <%= link_to "Buy",  class: "btn btn-primary" %>
+          <%= link_to "Buy",new_order_path,  class: "btn btn-primary" %>
           <%= link_to "Add to Cart" %>
         <% end %>
       </div>

@@ -1,0 +1,11 @@
+
+<h1> here is order details<h1>
+<p> <%= @product.name %>
+  <%= @order.address %>
+  <%= @order.pincode %>
+  <%= @order.mobile %>
+  <%= @order.item_name %>
+  <%= @order.payment%><p>
+<ul>
+  <li><%= link_to "Edit", edit_order_path(@order) %></li>
+</ul>
