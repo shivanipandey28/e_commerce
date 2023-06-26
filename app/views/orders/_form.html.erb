@@ -1,0 +1,65 @@
+<h1>Orders</h1>
+<%= form_with model: @order do |form| %>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @product.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :address %><br>
+    <%= form.text_field :address %>
+    <% @product.errors.full_messages_for(:address).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :pincode %><br>
+    <%= form.text_field :pincode %>
+    <% @product.errors.full_messages_for(:pincode).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :mobile %><br>
+    <%= form.text_field :mobile %>
+    <% @product.errors.full_messages_for(:mobile).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :itme_name %><br>
+    <%= form.text_field :itme_name %>
+    <% @product.errors.full_messages_for(:itme_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %><br>
+    <%= form.text_field :quantity %>
+    <% @product.errors.full_messages_for(:quantity).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<div>
+    <%= form.label :payment %><br>
+    <%= form.text_field :payment %>
+    <% @product.errors.full_messages_for(:payment).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
