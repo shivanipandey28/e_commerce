@@ -1,7 +1,9 @@
 class User < ApplicationRecord
+  has_many :products, dependent: :destroy
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  #validates :role, presence: true
+  # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
+  # validates :role, presence: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
   def configure_permitted_parameters
