@@ -5,12 +5,13 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = current_user.orders.new
+    @product = Product.find(params[:product_id])
+    @order = current_user.orders.new(product_id: @product.id)
   end
 
   def create
     @order = current_user.orders.new(order_params)
-     if @order.save
+     if @order.save!
       redirect_to @order, notice: "order placed successfully."
      else
       render :new, status: :unprocessable_entity
