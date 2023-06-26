@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
       if params[:category].blank?
         @products = Product.all
         @users = User.where(role: "seller")
+        # @products = @user.products.all
       else 
         @category_id = Category.find_by(name:params[:category]).id
         @products = Product.where(category_id: @category_id)
@@ -22,7 +23,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(product_params)
-     if @product.save
+     if @product.save!
       redirect_to @product, notice: "Product created successfully."
      else
       render :new, status: :unprocessable_entity

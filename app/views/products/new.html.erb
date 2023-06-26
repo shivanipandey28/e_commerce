@@ -3,11 +3,9 @@
 
 <%= form_with model: @product do |form| %>
 
-<div>
-<%= form.collection_select :category_id, Category.all,:id, :name,
-{promt: "Choose a category"} %>
-
-</div>
+  <div>
+    <%= form.collection_select :category_id, Category.all,:id, :name,{promt: "Choose a category"} %>
+  </div>
 
   <div>
     <%= form.label :name %><br>
@@ -49,7 +47,7 @@
     <% end %>
   </div>
 
-<div>
+  <div>
     <%= form.label :status %><br>
     <%= form.text_field :status %>
     <% @product.errors.full_messages_for(:status).each do |message| %>
