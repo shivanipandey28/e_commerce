@@ -10,11 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
    <body>
-    <% Category.all.each do |category| %>
-        <li>
-          <%= link_to category.name, products_path(category: category.name) %>
-        </li>
-        <% end %>
+   
         <%= yield %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>

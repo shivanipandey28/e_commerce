@@ -10,11 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_183950) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_26_104113) do
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "pincode"
+    t.integer "mobile"
+    t.string "item_name"
+    t.integer "quantity"
+    t.string "payment"
+    t.integer "product_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -51,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_183950) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
 end

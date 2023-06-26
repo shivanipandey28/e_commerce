@@ -3,8 +3,13 @@ class ProductsController < ApplicationController
 
 
   def index
-     @products = Product.all
-     @users = User.where(role: "seller")
+      if params[:category].blank?
+        @products = Product.all
+        @users = User.where(role: "seller")
+      else 
+        @category_id = Category.find_by(name:params[:category]).id
+        @products = Product.where(category_id: @category_id)
+      end
    end
 
   def show
@@ -16,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = current_user.product.new(product_params)
+    @product = current_user.products.new(product_params)
      if @product.save
       redirect_to @product, notice: "Product created successfully."
      else

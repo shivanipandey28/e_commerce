@@ -98,14 +98,12 @@
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Categories</a></li>
-      <li><a href="#">Deals</a></li>
-      <li><a href="#">My Orders</a></li>
-      <li><a href="#">Account</a></li>
+      <li><a href="/users/sign_out">Sign Out</a></li>
     </ul>
   </nav>
 
   <div class="container">
-    <% if current_user.admin? %>
+     <% if current_user.role == "admin" %>
       <div class="welcome-message">Welcome to Admin <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
       <ul class="user-list">
@@ -116,9 +114,9 @@
     <% else %>
       <% if user_signed_in? %>
         <div class="welcome-message">Welcome to <%= current_user.email %></div><br>
-        <% if current_user && current_user.seller? %>
+      <% if current_user && current_user.role == "seller" %>
           <p>Welcome, seller!</p>
-          <p>You have created a total of <%= @product_count %> products.</p>
+          <p>You have created a total of <%= @product_count %> products</p>
           <a href="<%= new_product_path %>" class="create-product-button">Create New Product</a>
         <% else %>
           <p>Welcome, buyer user!</p>
@@ -133,12 +131,6 @@
           <% end %>
         </ul>
       <% end %>
-    <% end %>
-    <br>
-    <% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "sign-out-link" %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path, class: "sign-in-link" %>
     <% end %>
   </div>
 </body>
