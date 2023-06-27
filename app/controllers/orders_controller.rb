@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
-     if @order.save!
+     if @order.save
       redirect_to @order, notice: "order placed successfully."
      else
       render :new, status: :unprocessable_entity
@@ -21,14 +21,16 @@ class OrdersController < ApplicationController
 
   def edit
     @product = Product.find(params[:product_id])
+    @order = current_user.orders.find(params[:order_id])
+    # @order = Order.find(params[:order_id])
   end
 
   def update
     @order = current_user.orders.update(order_params)
-     if @order.save!
+     if @order.update(order_params)
       redirect_to @order, notice: "order updated successfully."
      else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity, notice: "order not updated"
     end
   end
 

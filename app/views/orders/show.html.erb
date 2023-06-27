@@ -14,5 +14,5 @@
   <%= @order.item_name %>
   <%= @order.payment%><p>
 <ul>
-  <li><%= link_to "Update Details", edit_order_path(@order) %></li>
+  <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
 </ul>
