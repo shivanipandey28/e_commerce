@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
     end
   end
 
-
   def edit
     @product = Product.find(params[:product_id])
     @order = current_user.orders.find(params[:order_id])
@@ -33,6 +32,7 @@ class OrdersController < ApplicationController
       render :edit, status: :unprocessable_entity, notice: "order not updated"
     end
   end
+
 
  private
  def order_params

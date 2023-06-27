@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-commerce Website</title>
+</head>
 <body>
   <nav>
     <div class="logo">My E-commerce Website</div>
@@ -9,31 +14,29 @@
   </nav>
 
   <div class="container">
-     <% if current_user.role == "admin" %>
-      <div class="welcome-message">Welcome to Admin <%= current_user.email %></div><br>
+    <% if current_user.role == "admin" %>
+      <div>Welcome Admin, <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
-      <ul class="user-list">
+      <ul>
         <% @users.each do |seller| %>
-          <li><%= link_to seller.email,product_path(seller) %></li>
+          <li><%= link_to seller.email, product_path(seller) %></li>
         <% end %>
       </ul>
     <% else %>
-      <% if user_signed_in? %>
-        <div class="welcome-message">Welcome to <%= current_user.email %></div><br>
-      <% if current_user && current_user.role == "seller" %>
-          <p>Welcome, seller!</p>
-          <a href="<%= new_product_path %>" class="create-product-button">Create New Product</a>
-          <p>You have created a total of <%= @product_count %> products</p>
-          <% @seller.each do |product| %>
-          <li><%= link_to product.name,product_url(product)%></li>
-        <% end %>
-        <% else %>
-          <p>Welcome, buyer user!</p>
-        <% end %>
-
-        <% if current_user.role == "buyer" %>
+      <div>Welcome to <%= current_user.email %></div><br>
+      <% if current_user.role == "seller" %>
+        <p>Welcome, seller!</p>
+        <a href="<%= new_product_path %>">Create New Product</a>
+       <% seller_product_count = @products.count %>
+      <p>You have created a total  <%= seller_product_count %> products </p>
+        <ul>
+          <% @products.each do |product| %>
+            <li><%= link_to product.name, product_url(product) %></li>
+          <% end %>
+        </ul>
+      <% else %>
         <h1>Products</h1>
-        <ul class="product-list">
+        <ul>
           <% @products.each do |product| %>
             <li>
               <%= link_to product.name, product %>
@@ -41,7 +44,6 @@
             </li>
           <% end %>
         </ul>
-        <% end %>
       <% end %>
     <% end %>
   </div>

@@ -2,14 +2,20 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    if current_user.role == 'buyer'
+      @products = Product.all
+    elsif current_user.role == 'seller'
+      @products = current_user.products
+    elsif current_user.role == 'admin'
+      @users = User.where(role: 'seller')
+    end
+    
     if params[:category].blank?
       @products = Product.all
     else 
       @category_id = Category.find_by(name:params[:category]).id
       @products = Product.where(category_id: @category_id)
     end
-      @users = User.where(role: "seller")
-      @seller = current_user.products
    end
         
   def show
@@ -20,13 +26,12 @@ class ProductsController < ApplicationController
     @product = current_user.products.new
   end
 
-
   def create
     @product = current_user.products.new(product_params)
-     if @product.save!
-      redirect_to @product, notice: "Product created successfully."
-     else
-      render :new, status: :unprocessable_entity
+    if @product.save!
+     redirect_to @product, notice: "Product created successfully."
+    else
+     render :new, status: :unprocessable_entity
     end
   end
 
@@ -54,6 +59,6 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
-      :status, :quantity, :category_id, :user_id,:role)
+    :status, :quantity, :category_id, :user_id,:role)
   end
 end
