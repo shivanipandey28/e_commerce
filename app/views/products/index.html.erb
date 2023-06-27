@@ -14,7 +14,7 @@
       <p>Here is the list of all sellers:</p>
       <ul class="user-list">
         <% @users.each do |seller| %>
-          <li><%= link_to seller.email %></li>
+          <li><%= link_to seller.email,product_path(seller) %></li>
         <% end %>
       </ul>
     <% else %>
