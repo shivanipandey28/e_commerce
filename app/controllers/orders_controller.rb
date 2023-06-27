@@ -17,7 +17,21 @@ class OrdersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-end
+
+
+  def edit
+    @product = Product.find(params[:product_id])
+  end
+
+  def update
+    @order = current_user.orders.update(order_params)
+     if @order.save!
+      redirect_to @order, notice: "order updated successfully."
+     else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
 
  private
  def order_params
