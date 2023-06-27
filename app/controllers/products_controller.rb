@@ -1,18 +1,17 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
 
-
   def index
-      if params[:category].blank?
-        @products = Product.all
-        @users = User.where(role: "seller")
-        # @products = @user.products.all
-      else 
-        @category_id = Category.find_by(name:params[:category]).id
-        @products = Product.where(category_id: @category_id)
-      end
+    if params[:category].blank?
+      @products = Product.all
+    else 
+      @category_id = Category.find_by(name:params[:category]).id
+      @products = Product.where(category_id: @category_id)
+    end
+      @users = User.where(role: "seller")
+      @seller = current_user.products
    end
-
+        
   def show
     @product = Product.find(params[:id])
   end
@@ -20,6 +19,7 @@ class ProductsController < ApplicationController
   def new
     @product = current_user.products.new
   end
+
 
   def create
     @product = current_user.products.new(product_params)
@@ -56,5 +56,4 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
       :status, :quantity, :category_id, :user_id,:role)
   end
-
 end

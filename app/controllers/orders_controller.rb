@@ -22,18 +22,17 @@ class OrdersController < ApplicationController
   def edit
     @product = Product.find(params[:product_id])
     @order = current_user.orders.find(params[:order_id])
-    # @order = Order.find(params[:order_id])
   end
 
   def update
-    @order = current_user.orders.update(order_params)
+    @order = current_user.orders.find(order_params)
+
      if @order.update(order_params)
       redirect_to @order, notice: "order updated successfully."
      else
       render :edit, status: :unprocessable_entity, notice: "order not updated"
     end
   end
-
 
  private
  def order_params

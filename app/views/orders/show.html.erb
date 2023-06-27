@@ -6,13 +6,6 @@
 <p>Item Name: <%= @order.item_name %></p>
 <p>Payment: <%= @order.payment %></p>
 
-<h1> here is order details<h1>
-<p> <%= @order.product.name %><br>
-  <%= @order.address %><br>
-  <%= @order.pincode %><br>
-  <%= @order.mobile %><br>
-  <%= @order.item_name %><br>
-  <%= @order.payment%><p><br>
-<ul>
   <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
+  <li><%= link_to "Cancel Order",order_path(order_id:@order.id,product_id: @order.product.id) %></li>
 </ul>
