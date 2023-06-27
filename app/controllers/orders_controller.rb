@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def show
     @order = Order.find(params[:id])
   end
@@ -17,9 +17,10 @@ class OrdersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+end
 
-   private
-  def order_params
+ private
+ def order_params
     params.require(:order).permit(:name, :address, :pincode, :mobile, :item_name,
       :quantity,:payment, :product_id, :user_id)
   end
