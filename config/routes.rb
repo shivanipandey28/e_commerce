@@ -6,5 +6,9 @@ end
   root "products#index"
   resources :products
   resources :orders
+  
+  # get '/give', to: 'products#give', as:'gives'
+
+
 end
 

@@ -1,11 +1,11 @@
+<h1>Order Details</h1>
+<p>Name: <%= @order.name %></p>
+<p>Address: <%= @order.address %></p>
+<p>Pincode: <%= @order.pincode %></p>
+<p>Mobile: <%= @order.mobile %></p>
+<p>Item Name: <%= @order.item_name %></p>
+<p>Payment: <%= @order.payment %></p>
 
-<h1> here is order details<h1>
-<p> <%= @order.product.name %>
-  <%= @order.address %>
-  <%= @order.pincode %>
-  <%= @order.mobile %>
-  <%= @order.item_name %>
-  <%= @order.payment%><p>
-<ul>
-  <li><%= link_to "Edit", edit_order_path(@order) %></li>
+  <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
+  <li><%= link_to "Cancel Order",order_path(order_id:@order.id,product_id: @order.product.id) %></li>
 </ul>
