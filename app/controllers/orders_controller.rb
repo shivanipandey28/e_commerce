@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+   def index
+    @orders = current_user.orders
+  end
+
   def show
     @order = Order.find(params[:id])
   end
@@ -31,6 +35,17 @@ class OrdersController < ApplicationController
      else
       render :edit, status: :unprocessable_entity, notice: "order not updated"
     end
+  end
+
+  def destroy
+    @order = current_user.orders.find(params[:id])
+    @order.destroy
+    redirect_to products_path(@products), notice: "Order deleted successfully."
+  end
+
+  def add_cart
+    @order = current_user.product(order_params)
+    @buyer = @order.create(order_params)
   end
 
 
