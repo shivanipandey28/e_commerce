@@ -18,8 +18,8 @@
       <div>Welcome Admin, <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
       <ul>
-        <% @users.each do |seller| %>
-          <li><%= link_to seller.email, product_path(seller) %></li>
+        <% @sellers.each do |seller| %>
+         <li><%= link_to seller.email, seller_list_path(seller_id: seller.id) %></li>
         <% end %>
       </ul>
     <% else %>

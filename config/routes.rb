@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { application: 'application' }
   devise_scope :user do  
-   get '/users/sign_out' => 'devise/sessions#destroy'     
-end
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+  end
   root "products#index"
   resources :products
   resources :orders
-  
-  # get '/give', to: 'products#give', as:'gives'
-
+  get '/seller_list', to: 'products#seller_list', as: 'seller_list'
 
 end
-

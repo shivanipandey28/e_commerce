@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     elsif current_user.role == 'seller'
       @products = current_user.products
     elsif current_user.role == 'admin'
-      @users = User.where(role: 'seller')
+      @sellers = User.where(role: 'seller')
     end
     
     if params[:category].blank?
@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
       @category_id = Category.find_by(name:params[:category]).id
       @products = Product.where(category_id: @category_id)
     end
-   end
+  end
         
   def show
     @product = Product.find(params[:id])
@@ -52,13 +52,19 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
+    redirect_to root_path, status: :see_other, notice: "Product deleted successfully."  end
 
-    redirect_to root_path, status: :see_other, notice: "Product deleted successfully."
+  def seller_list
+    if current_user.role == "admin"
+      seller = User.find(params[:seller_id])
+      @products = seller.products
+    else
+      redirect_to root_path, notice: "there is no product."
+    end
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :brand_name, :rating, :price, :description,
-    :status, :quantity, :category_id, :user_id,:role)
+    params.require(:product).permit(:name, :brand_name, :rating, :price, :description,:status, :quantity, :category_id, :user_id,:role)
   end
 end
