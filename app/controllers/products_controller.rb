@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
     if current_user.role == 'buyer'
@@ -36,12 +37,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
-
      if @product.update(product_params)
       redirect_to @product, notice: "Product updated successfully."
      else
@@ -50,7 +48,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path, status: :see_other, notice: "Product deleted successfully."  end
 
@@ -64,7 +61,13 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def product_params
     params.require(:product).permit(:name, :brand_name, :rating, :price, :description,:status, :quantity, :category_id, :user_id,:role)
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end

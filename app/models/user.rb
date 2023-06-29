@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_one :cart
+  has_many :cart_items, dependent: :destroy
+  after_create :create_cart
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
   # validates :role, presence: true
@@ -14,6 +19,10 @@ class User < ApplicationRecord
   def set_defaults
     self.role ||= :buyer
    enum role: { admin: "admin", seller:"seller", buyer: "buyer"}
+ end
+
+ def create_cart
+  Cart.create(user_id: id)
  end
          
 end

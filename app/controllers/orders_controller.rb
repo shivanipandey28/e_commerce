@@ -43,12 +43,6 @@ class OrdersController < ApplicationController
     redirect_to products_path(@products), notice: "Order deleted successfully."
   end
 
-  def add_cart
-    # @order = current_user.product(order_params)
-    # @cart = Order.create(order_params)
-    # @cart.save
-  end
-
 
  private
  def order_params
