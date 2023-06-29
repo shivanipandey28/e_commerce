@@ -29,7 +29,7 @@
         <p>Quantity: <%= @product.quantity %></p>
         <% if current_user.role =="buyer" %>
           <%= link_to "Buy",new_order_path(product_id: @product.id),  class: "btn btn-primary" %>
-          <%= link_to "Add to Cart" %>
+          <%= link_to "Add to Cart",add_cart_path%>
         <% end %>
       </div>
     </div>

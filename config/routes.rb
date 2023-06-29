@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
   get '/seller_list', to: 'products#seller_list', as: 'seller_list'
-
+  get '/add_cart', to: 'orders#add_cart', as: 'add_cart'
 end
