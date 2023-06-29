@@ -44,8 +44,9 @@ class OrdersController < ApplicationController
   end
 
   def add_cart
-    @order = current_user.product(order_params)
-    @buyer = @order.create(order_params)
+    # @order = current_user.product(order_params)
+    # @cart = Order.create(order_params)
+    # @cart.save
   end
 
 

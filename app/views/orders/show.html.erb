@@ -9,4 +9,5 @@
   <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
   <li><%= link_to "Cancel Order",orders_path(order_id:@order.id,product_id: @order.product.id) %></li>
    <li><%= link_to "Your all orders",orders_path%></li>
+    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
 </ul>

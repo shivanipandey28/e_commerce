@@ -5,7 +5,7 @@
   <% @orders.each do |order| %>
     <li>
       <%= order.item_name %><br>
-          <%= order.payment %>
+      <%= order.payment %>
     </li>
   <% end %>
     <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
