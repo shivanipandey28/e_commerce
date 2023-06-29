@@ -6,12 +6,12 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new
   end
 
-  def show 
-    @cart_items = CartItem.find(params[:id])
+  def show
+    @cart_item = CartItem.find(params[:id])
   end
 
-  def create  
-    @cart_item = current_user.cart_items.new(cart_item_params)
+  def create
+    @cart_item = current_user.cart_items.build(cart_item_params)
 
     if @cart_item.save
       redirect_to @cart_item, notice: 'Item added to your cart'
@@ -29,7 +29,6 @@ class CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:quantity, :cart_id, :product_id, :user_id)
+    params.require(:cart_item).permit(:quantity, :product_id)
   end
-
 end

@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   def index
     if current_user.role == 'buyer'
       @products = Product.all
+      @cart_items = current_user.cart_items
     elsif current_user.role == 'seller'
       @products = current_user.products
     elsif current_user.role == 'admin'
