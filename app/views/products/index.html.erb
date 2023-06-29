@@ -36,6 +36,8 @@
         </ul>
       <% else %>
         <h1>Products</h1>
+        <h5>Your all orders are here <h5>
+          <li><%= link_to "Your all orders",orders_path%></li><br>
         <ul>
           <% @products.each do |product| %>
             <li>

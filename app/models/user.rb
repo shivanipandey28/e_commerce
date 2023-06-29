@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
-  has_one :cart
+  has_one  :cart
   has_many :cart_items, dependent: :destroy
   after_create :create_cart
 
@@ -16,6 +16,7 @@ class User < ApplicationRecord
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
     devise_parameter_sanitizer.permit(:account_update, keys: [:role])
   end
+  
   def set_defaults
     self.role ||= :buyer
    enum role: { admin: "admin", seller:"seller", buyer: "buyer"}
