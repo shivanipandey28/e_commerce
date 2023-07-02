@@ -4,24 +4,15 @@
   <title>E-commerce Website</title>
 </head>
 <body>
-  <nav>
-    <div class="logo">My E-commerce Website</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Categories</a></li>
-      <li><a href="/users/sign_out">Sign Out</a></li>
-    </ul>
-  </nav>
-
   <div class="container">
     <% if current_user.role == "admin" %>
       <div>Welcome Admin, <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
-      <ul>
-        <% @sellers.each do |seller| %>
-         <li><%= link_to seller.email, seller_list_path(seller_id: seller.id) %></li>
-        <% end %>
-      </ul>
+      <% @sellers.each do |user| %>
+     <li>
+      <%= link_to user.email,seller_list_path(seller_id: user.id) %>
+     </li>
+    <% end %>
     <% else %>
       <div>Welcome to <%= current_user.email %></div><br>
       <% if current_user.role == "seller" %>

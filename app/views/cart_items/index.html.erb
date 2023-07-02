@@ -1,27 +1,9 @@
-<h1>Cart Items</h1>
-<% if @cart_items.any? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @cart_items.each do |cart_item| %>
-        <tr>
-          <td><%= cart_item.product.name %></td>
-          <td><%= cart_item.quantity %></td>
-          <td>
-            <%= link_to 'Remove', cart_item, method: :delete, data: { confirm: 'Are you sure you want to remove this item from your cart?' } %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>Your cart is empty.</p>
-<% end %>
+<h1>Cart Items</h1>     
 
-<%= link_to 'Add Item', new_cart_item_path %>
+<% @cart_items.each do |cart_item| %>
+  <div class="cart-item">
+    <h3><%= cart_item.product.name %></h3>
+    <p>Quantity: <%= cart_item.quantity %></p>
+  </div>
+<% end %>
+<li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li> 
