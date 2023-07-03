@@ -1,11 +1,6 @@
 <h1>Cart Item Details</h1>
-
-<div>
-  <p><strong>Product:</strong> <%= @cart_item.product.name %></p>
-  <p><strong>Quantity:</strong> <%= @cart_item.quantity %></p>
-  <!-- Add any other relevant details you want to display -->
-</div>
-
-<%= link_to 'Remove from Cart', cart_item_path(@cart_item), method: :delete, data: { confirm: 'Are you sure you want to remove this item from your cart?' } %>
-
-<%= link_to 'Back to Cart', cart_items_path %>
+<%= form_for @cart_item, url: cart_items_path do |f| %>
+  <%= f.number_field :quantity, value: 1, min: 1 %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <%= f.submit "Add to Cart" %>
+<% end %>

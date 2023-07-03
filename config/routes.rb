@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products
   resources :orders
-  resources :cart_items, only: [:new, :show,:create, :destroy]
+  resources :cart_items
   get '/seller_list', to: 'products#seller_list', as: 'seller_list'
-  get '/add_cart', to: 'orders#add_cart', as: 'add_cart'
+  get '/add_cart', to: 'cart_items#create', as: 'add_cart'
 
 end

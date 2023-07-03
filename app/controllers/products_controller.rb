@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, only: [:edit, :update, :destroy]
-
+  
   def index
     if current_user.role == 'buyer'
       @products = Product.all
@@ -22,6 +22,8 @@ class ProductsController < ApplicationController
  
   def show
     @product = Product.find(params[:id])
+    @cart = Cart.find_by(user_id: current_user.id)
+    @cart_item = CartItem.new
   end
 
   def new

@@ -1,13 +1,10 @@
 <h1>Seller List</h1>
-
 <% if @products.present? %>
-<p>Total Products: <%= @products.size %></p>
-  <ul>
-    <% @products.each do |product| %>
-      <li><%= product.name %></li>
-    <% end %>
-    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li> 
-  </ul>
+ <p>Total Products: <%= @products.size %></p>
+   <ul> <% @products.each do |product| %>
+        <li><%= product.name %></li>
+ <% end %>
+    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li> </ul>
 <% else %>
   <p>No products available.</p>
 <% end %>

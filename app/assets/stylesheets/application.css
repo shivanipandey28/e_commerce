@@ -13,3 +13,24 @@ a.{
 .logo{
     color:blue ;
 }
+.center{ 
+    display: block;
+    text-align: center;
+}
+
+.navbar-link {
+  color: blue;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.navbar-link{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+.navbar .btn {
+  margin-left: 10px;
+}
+
+
