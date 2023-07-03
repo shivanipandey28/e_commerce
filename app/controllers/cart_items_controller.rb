@@ -13,7 +13,6 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    #@product = Product.find(params[:id])
     unless current_user.cart
       @cart = Cart.create(user_id: current_user.id)
     else 
@@ -23,10 +22,8 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.user_id = current_user.id
     @cart_item.cart_id = current_user.cart.id
-    #@cart_item = current_user.cart.cart_items.create(cart_item_params)
 
     if @cart_item.save
-       #@cart.add_product(@product,@cart_item.quantity )
       redirect_to cart_items_path, notice: "Item added to cart successfully."
     else
       redirect_to products_path, alert: "Failed to add item to cart."
