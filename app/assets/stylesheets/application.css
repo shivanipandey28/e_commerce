@@ -2,7 +2,7 @@ a.{
     color: white;
 }
 .register{
-    font-size: 20px;
+    font-size: 40px;
     font-family: sans-serif;
     color:white;
 }
@@ -33,4 +33,6 @@ a.{
   margin-left: 10px;
 }
 
-
+body{
+     background-color: #FFC0CB;
+    }

@@ -4,6 +4,7 @@
   <title>E-commerce Website</title>
 </head>
 <body>
+
   <div class="container">
     <% if current_user.role == "admin" %>
       <div>Welcome Admin, <%= current_user.email %></div><br>
@@ -33,6 +34,7 @@
          <ul><% @products.each do |product| %>
            <li><%= link_to product.name, product %>
                 <p>$<%= product.price %></p>
+               <p><%= image_tag product.image %><p>
            </li>
           <% end %></ul>
           

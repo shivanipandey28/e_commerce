@@ -15,6 +15,18 @@
     <% if user_signed_in? %>
         <% if current_user.role == "buyer" %>
          <%= link_to "All Products", products_path, class: "btn btn-dark" %>
+
+         <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+            </button>
+            <ul class="dropdown-menu">
+               <% Category.all.each do |category| %>
+               <li> <%= link_to category.name, products_path(category: category.name) %> </li><br>
+               <% end %>
+            </ul>
+          </div>
+
          <%= link_to "Category",class: "btn btn-danger" %>
          <%= link_to "Home", root_path, class: "btn btn-success" %>
          <%= link_to "Your Orders", orders_path, class: "btn btn-info" %>
@@ -34,6 +46,7 @@
      </div> 
     <% end %>
  </nav>
+
  <%= yield %>
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>

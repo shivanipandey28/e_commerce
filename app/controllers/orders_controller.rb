@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
+    @order.product_id = params[:order][:product_id]
     if @order.save
      redirect_to @order, notice: "order placed successfully."
     else

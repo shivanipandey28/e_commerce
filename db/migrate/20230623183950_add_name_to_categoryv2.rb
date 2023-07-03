@@ -1,4 +1,4 @@
-class AddNameToCategory < ActiveRecord::Migration[7.0]
+class AddNameToCategoryV2< ActiveRecord::Migration[7.0]
   def change
     add_column :categories, :name, :string
   end
