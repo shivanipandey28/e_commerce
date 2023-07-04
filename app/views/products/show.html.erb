@@ -7,9 +7,9 @@
     <h1>Product Details</h1>
     <div class="row">
     <div class="col-md-6">
-      <div class="product-image">
-    <%= image_tag @product.image %>
-</div>
+    <div class="product-image">
+      <%= image_tag @product.image %>
+    </div>
       <h4><%= @product.name %></h4>
       <p>Brand: <%= @product.brand_name %></p>
       <p>Description: <%= @product.description %></p>
@@ -21,19 +21,23 @@
         <% if current_user.role =="buyer" %>
           <%= link_to "Buy",new_order_path(product_id: @product.id),  class: "btn btn-primary" %>
           <%= form_with(model:@cart_item, url: cart_items_path(@cart), method: :post) do |f| %>
-          <%= f.hidden_field :product_id, value: @product.id %>
-          <%= f.submit "add to cart" %>
+          <%= f.hidden_field :product_id, value: @product.id %><br>
+          <%= f.submit "add to cart", class: "btn btn-success" %><br><br>
+          <%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
           <% end %>
         <% end %>
     </div>
     </div>
+    </div>
     <div class="actions">  
          <% if current_user && current_user.role == "seller" %>
-           <li class="list-inline-item"><%= link_to "Edit", edit_product_path(@product), class: "btn btn-primary" %></li>
+           <li class="list-inline-item"><%= link_to "Edit", edit_product_path(@product), class: "btn btn-primary" %>
+           </li>
            <li class="list-inline-item"><%= link_to "Delete", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %></li>
            <li class="list-inline-item"><%= link_to "Create New", new_product_path, class: "btn btn-success" %></li>
-        <% end %>
            <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
+        <% end %>
+          
     </div>
 </body>
 </html>

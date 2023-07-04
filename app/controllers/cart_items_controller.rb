@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  before_action :set_cart_item, only:[:show, :destroy]
+  
   def index
      @cart_items = current_user.cart.cart_items
   end
@@ -8,7 +10,6 @@ class CartItemsController < ApplicationController
   end
 
   def show
-    @cart_item = CartItem.find(params[:id])
     @cart = @current_cart
   end
 
@@ -31,7 +32,6 @@ class CartItemsController < ApplicationController
   end
   
   def destroy
-    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
     redirect_to cart_items_path, notice: 'Item removed from your cart'
   end
@@ -40,4 +40,9 @@ class CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:quantity, :cart_id, :user_id, :product_id)
   end
+
+  def set_cart_item
+    @cart_item = CartItem.find(params[:id])
+  end
+
 end

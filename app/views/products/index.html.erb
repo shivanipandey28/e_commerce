@@ -17,7 +17,7 @@
     <% else %>
       <div>Welcome to <%= current_user.email %></div><br>
        <% if current_user.role == "seller" %>
-         <p>Welcome, seller!</p>
+         <p>Welcome, seller!, <%= current_user.email %></p>
          <a href="<%= new_product_path %>">Create New Product</a>
           <% seller_product_count = @products.count %>
           <p>You have created a total  <%= seller_product_count %> products </p>
@@ -29,11 +29,9 @@
 
       <% else %>
         <h1>Products</h1>
-        <h5>Your all orders are here <h5>
-        <li><%= link_to "Your all orders",orders_path%></li><br>
          <ul><% @products.each do |product| %>
            <li><%= link_to product.name, product %>
-                <p>$<%= product.price %></p>
+                <p>Price :<%= product.price %></p>
                <p><%= image_tag product.image %><p>
            </li>
           <% end %></ul>

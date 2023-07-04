@@ -30,7 +30,7 @@
          <%= link_to "Category",class: "btn btn-danger" %>
          <%= link_to "Home", root_path, class: "btn btn-success" %>
          <%= link_to "Your Orders", orders_path, class: "btn btn-info" %>
-         <%= link_to "Cart Item", cart_items_path, class: "btn btn-warning" %>
+         <%= link_to "Cart", cart_items_path, class: "btn btn-warning" %>
          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
         <% elsif current_user.role == "seller" %>
          <%= link_to "Home", root_path, class: "btn btn-success" %>

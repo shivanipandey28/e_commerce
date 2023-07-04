@@ -5,9 +5,6 @@
 <p>Mobile: <%= @order.mobile %></p>
 <p>Item Name: <%= @order.item_name %></p>
 <p>Payment: <%= @order.payment %></p>
-
-  <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
-  <li><%= link_to "Cancel Order",orders_path(order_id:@order.id,product_id: @order.product.id) %></li>
-   <li><%= link_to "Your all orders",orders_path%></li>
-    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
+ <ul>  <li class="list-inline-item"><%= link_to "Cancel Order", order_path(@order), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %></li><br><br>
+   <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li><br>  
 </ul>

@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
       seller = User.find(params[:seller_id])
       @products = seller.products
     else
-      redirect_to root_path, notice: "there is no product."
+      redirect_to root_path, notice: "This seller has  no product."
     end
   end
 
