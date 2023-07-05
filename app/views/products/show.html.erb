@@ -5,11 +5,15 @@
 <body>
     <div class="container">
     <h1>Product Details</h1>
-    <div class="row">
     <div class="col-md-6">
-      <div class="product-image">
+  <div class="product-image">
+    <% if @product.image.present? %>
       <%= image_tag @product.image %>
-    </div>
+    <% else %>
+      <p>No image available</p>
+    <% end %>
+  </div>
+
       <h4><%= @product.name %></h4>
       <p>Brand: <%= @product.brand_name %></p>
       <p>Description: <%= @product.description %></p>
@@ -17,6 +21,7 @@
       <p>Rating: <%= @product.rating %></p>
       <p>Status: <%= @product.status %></p>
       <p>Quantity: <%= @product.quantity %></p>
+      </div>
 
         <% if current_user.role =="buyer" %>
           <%= link_to "Buy",new_order_path(product_id: @product.id),  class: "btn btn-primary" %>

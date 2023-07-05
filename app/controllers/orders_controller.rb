@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.new(order_params)
     @order.product_id = params[:order][:product_id]
+    @order.order_date = Date.current
     if @order.save
      redirect_to @order, notice: "order placed successfully."
     else
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:name, :address, :pincode, :mobile, :item_name,
-      :quantity,:payment, :product_id, :user_id)
+      :quantity,:payment, :product_id, :user_id,:order_date, :delivery_date)
   end
 
   def set_order
