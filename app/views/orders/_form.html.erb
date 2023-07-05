@@ -35,7 +35,7 @@
 
   <div>
     <%= form.label :item_name %><br>
-    <%= form.text_field :item_name %>
+    <%= form.text_field :item_name, value:@product.name, readonly: true%>
     <% @order.errors.full_messages_for(:item_name).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -50,8 +50,8 @@
   </div>
 
   <div>
-    <%= form.label :payment %><br>
-    <%= form.text_field :payment %>
+   <%= form.label :payment %><br>
+    <%= form.text_field :payment, value: @product.price, readonly: true %>
     <% @order.errors.full_messages_for(:payment).each do |message| %>
       <div><%= message %></div>
     <% end %>

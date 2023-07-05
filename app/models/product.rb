@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
-  belongs_to :category
-  belongs_to :user
+  belongs_to :category, optional:true
+  belongs_to :user,optional:true
   has_many :orders, dependent: :destroy
+
   validates :category_id, :user_id, presence: true
+
+   has_one_attached :image
+ 
 end

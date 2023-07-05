@@ -1,13 +1,27 @@
-<h1>Order Details</h1>
-<p>Name: <%= @order.name %></p>
-<p>Address: <%= @order.address %></p>
-<p>Pincode: <%= @order.pincode %></p>
-<p>Mobile: <%= @order.mobile %></p>
-<p>Item Name: <%= @order.item_name %></p>
-<p>Payment: <%= @order.payment %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Details</title>
+</head>
 
-  <li><%= link_to "Update Details", edit_order_path(order_id:@order.id,product_id: @order.product.id) %></li>
-  <li><%= link_to "Cancel Order",orders_path(order_id:@order.id,product_id: @order.product.id) %></li>
-   <li><%= link_to "Your all orders",orders_path%></li>
-    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
-</ul>
+<body>
+  <h1>Order Details</h1>
+  <p class="order-info">Name: <%= @order.name %></p>
+  <p class="order-info">Address: <%= @order.address %></p>
+  <p class="order-info">Pincode: <%= @order.pincode %></p>
+  <p class="order-info">Mobile: <%= @order.mobile %></p>
+  <p class="order-info">Item Name: <%= @order.item_name %></p>
+  <p class="order-info">Payment: <%= @order.payment %></p>
+
+  <ul class="button-list">
+    <li class="list-inline-item">
+      <%= link_to "Cancel Order", order_path(@order), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </li>
+    <br><br>
+    <li class="list-inline-item">
+      <%= link_to "Back", products_path(@products), class: "btn btn-secondary" %>
+    </li>
+    <br>
+  </ul>
+</body>
+</html>

@@ -13,7 +13,6 @@ class ProductsController < ApplicationController
     end
 
     if params[:category].blank?
-      @products = Product.all
     else 
       @category_id = Category.find_by(name:params[:category]).id
       @products = Product.where(category_id: @category_id)
@@ -60,14 +59,14 @@ class ProductsController < ApplicationController
       seller = User.find(params[:seller_id])
       @products = seller.products
     else
-      redirect_to root_path, notice: "there is no product."
+      redirect_to root_path, notice: "This seller has  no product."
     end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :brand_name, :rating, :price, :description,:status, :quantity, :category_id, :user_id,:role)
+    params.require(:product).permit(:name, :brand_name, :rating, :price, :description,:status, :quantity, :category_id, :user_id,:role, :image)
   end
 
   def set_product

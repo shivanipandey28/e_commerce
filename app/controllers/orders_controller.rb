@@ -1,11 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_order, only:[:show, :destroy]
 
-   def index
+  def index
     @orders = current_user.orders
   end
 
   def show
-    @order = Order.find(params[:id])
   end
 
   def new
@@ -15,6 +16,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
+    @order.product_id = params[:order][:product_id]
     if @order.save
      redirect_to @order, notice: "order placed successfully."
     else
@@ -22,30 +24,24 @@ class OrdersController < ApplicationController
     end
   end
 
-  def edit
-    @product = Product.find(params[:product_id])
-    @order = current_user.orders.find(params[:order_id])
-  end
-
-  def update
-    @order = current_user.orders.find(order_params)
-
-    if @order.update(order_params)
-     redirect_to @order, notice: "order updated successfully."
-    else
-     render :edit, status: :unprocessable_entity, notice: "order not updated"
-    end
-  end
-
   def destroy
-    @order = current_user.orders.find(params[:id])
-    @order.destroy
-    redirect_to products_path(@products), notice: "Order deleted successfully."
+    if @order.destroy
+       redirect_to root_path, status: :see_other, notice: "Order deleted successfully."
+   else
+      redirect_to root_path, status: :see_other, notice: "Failed to delete order."
+   end
   end
 
-private
- def order_params
+  private
+
+  def order_params
     params.require(:order).permit(:name, :address, :pincode, :mobile, :item_name,
       :quantity,:payment, :product_id, :user_id)
   end
+
+  def set_order
+    @order = Order.find(params[:id])
+  end
+
+
 end

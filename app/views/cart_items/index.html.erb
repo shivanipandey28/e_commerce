@@ -2,7 +2,7 @@
 <% @cart_items.each do |cart_item| %>
   <div class="cart-item">
     <h3><%= cart_item.product.name %></h3>
-    <p>Quantity: <%= cart_item.quantity %></p>
+    <p>Quantity: <%= cart_item.quantity %></p>  
   </div>
 <% end %>
 <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>   

@@ -4,8 +4,9 @@
 <%= form_with model: @product do |form| %>
 
   <div>
+    <%= form.label :Category %><br>
     <%= form.collection_select :category_id, Category.all,:id, :name,{promt: "Choose a category"} %>
-  </div>
+  </div><br>
 
   <div>
     <%= form.label :name %><br>
@@ -49,13 +50,19 @@
 
   <div>
     <%= form.label :status %><br>
-    <%= form.text_field :status %>
+    <%= form.select :status, options_for_select([[0, 'Inactive'], [1, 'Active']]), prompt: "Select status" %>
     <% @product.errors.full_messages_for(:status).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-
+    <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+    <% @product.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
   <div>
     <%= form.submit %>
