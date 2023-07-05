@@ -1,11 +1,15 @@
-<h1>Cart Items</h1>     
+<h1>Cart Items</h1> 
+<% total_price = 0 %>    
 <% @cart_items.each do |cart_item| %>
   <div class="cart-item">
     <h3><%= cart_item.product.name %></h3>
+    <h3><% total_price  += cart_item.product.price %></h3>
     <p>Quantity: <%= cart_item.quantity %></p>  
      <li class="list-inline-item">
       <%= link_to "Remove", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %><br> <br>
     </li>
+    <% total_price%>
   </div>
 <% end %>
+<p> Your Total Pric is : <%= total_price%></p>
 <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>   
