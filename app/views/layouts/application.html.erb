@@ -40,19 +40,11 @@
         <% elsif current_user.role == "admin" %>
           <%= link_to "Home", root_path, class: "btn btn-success" %>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
-<<<<<<< HEAD
       <% end %>
     <% else %>
      <div class='register btn btn-light'><%= link_to 'Register', new_user_registration_path %>
-     </div> 
-=======
+     </div>
         <% end %>
-      <% else %>
-        <div class='register'>
-          <%= link_to 'Register', new_user_registration_path %>
-       </div> 
->>>>>>> 00a036ffbbf5b80fd43562272a40302a1fd5e71a
-    <% end %>
  </nav>
 
  <%= yield %>
