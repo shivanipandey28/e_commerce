@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   before_action :set_cart_item, only:[:show, :destroy]
+  before_action :authenticate_user!
   
   def index
      @cart_items = current_user.cart.cart_items
@@ -32,8 +33,11 @@ class CartItemsController < ApplicationController
   end
   
   def destroy
-    @cart_item.destroy
-    redirect_to cart_items_path, notice: 'Item removed from your cart'
+     if @cart_item.destroy
+       redirect_to cart_item_path, status: :see_other, notice: "your item deleted successfully."
+   else
+      redirect_to root_path, status: :see_other, notice: "Failed to delete item."
+   end
   end
 
   private
