@@ -42,7 +42,7 @@
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %>
       <% end %>
     <% else %>
-     <div class='register'><%= link_to 'Register', new_user_registration_path %>
+     <div class='register btn btn-light'><%= link_to 'Register', new_user_registration_path %>
      </div> 
     <% end %>
  </nav>
