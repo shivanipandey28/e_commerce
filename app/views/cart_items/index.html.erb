@@ -3,6 +3,9 @@
   <div class="cart-item">
     <h3><%= cart_item.product.name %></h3>
     <p>Quantity: <%= cart_item.quantity %></p>  
+     <li class="list-inline-item">
+      <%= link_to "Remove", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %><br> <br>
+    </li>
   </div>
 <% end %>
 <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>   
