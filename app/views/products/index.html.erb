@@ -32,7 +32,8 @@
          <ul><% @products.each do |product| %>
            <li><%= link_to product.name, product %>
                 <p>Price :<%= product.price %></p>
-               <p><%= image_tag product.image %><p>
+                <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p>
+                <p><%= image_tag product.image %><p>
            </li>
           <% end %></ul>
           

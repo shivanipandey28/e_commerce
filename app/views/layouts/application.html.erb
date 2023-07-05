@@ -21,13 +21,13 @@
             <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Category
             </button>
+
             <ul class="dropdown-menu">
               <% Category.all.each do |category| %>
                 <li><%= link_to category.name, products_path(category: category.name) %></li><br>
               <% end %>
             </ul>
           </div>
-          <%= link_to "Category", class: "btn btn-danger" %>
           <%= link_to "Home", root_path, class: "btn btn-success" %>
           <%= link_to "Your Orders", orders_path, class: "btn btn-info" %>
           <%= link_to "Cart", cart_items_path, class: "btn btn-warning" %>
