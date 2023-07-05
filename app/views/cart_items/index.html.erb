@@ -4,10 +4,10 @@
   <div class="cart-item">
     <h3><%= cart_item.product.name %></h3>
     <h3><% total_price  += cart_item.product.price %></h3>
-    <p>Quantity: <%= cart_item.quantity %></p>  
+    <p>Quantity: <%= cart_item.quantity %></p> 
+     <li> <%= link_to "Details",cart_item_path(cart_item)%></li> 
      <li class="list-inline-item">
-      <%= link_to "Remove", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %><br> <br>
-    </li>
+     </li>
     <% total_price%>
   </div>
 <% end %>

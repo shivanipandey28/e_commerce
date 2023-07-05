@@ -11,11 +11,10 @@ class CartItemsController < ApplicationController
   end
 
   def show
-    @cart = @current_cart
   end
 
   def create
-    unless current_user.cart
+    if current_user.cart
       @cart = Cart.create(user_id: current_user.id)
     else 
        @cart = current_user.cart
@@ -33,9 +32,9 @@ class CartItemsController < ApplicationController
   end
   
   def destroy
-     if @cart_item.destroy
-       redirect_to cart_item_path, status: :see_other, notice: "your item deleted successfully."
-   else
+    if @cart_item.destroy
+       redirect_to root_path, status: :see_other, notice: "your item deleted successfully."
+    else
       redirect_to root_path, status: :see_other, notice: "Failed to delete item."
    end
   end

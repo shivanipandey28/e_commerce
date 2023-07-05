@@ -1,13 +1,19 @@
+
 <h1>Orders</h1>
 
-<div>Hello Buyer, <%= current_user.email %></div>
-<ul>
-  <% @orders.each do |order| %>
-    <li>
-      <%= order.item_name %><br>
-      <%= order.payment %><br></li>
-      <%= link_to "See Details",order %>
+<div class="order-list">
+  <div class="order-heading">Hello Buyer, <%= current_user.email %></div>
+  <ul>
+    <% count = @orders.count %>
+    <li class="order-info">Total Orders: <%= count %></li>
+    <% @orders.each do |order| %>
+      <li>  
+        <%= order.item_name %><br>
+        <%= order.payment %><br>
+        <%= link_to "See Details", order, class: "see-details" %>
+      </li>
+    <% end %>
+    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary back-button" %></li>
+  </ul>
+</div>
 
-<% end %>
-    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>
-</ul>
