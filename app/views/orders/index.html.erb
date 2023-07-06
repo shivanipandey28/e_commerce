@@ -1,19 +1,36 @@
-
 <h1>Orders</h1>
 
 <div class="order-list">
   <div class="order-heading">Hello Buyer, <%= current_user.email %></div>
-  <ul>
-    <% count = @orders.count %>
-    <li class="order-info">Total Orders: <%= count %></li>
-    <% @orders.each do |order| %>
-      <li>  
-        <%= order.item_name %><br>
-        <%= order.payment %><br>
-        <%= link_to "See Details", order, class: "see-details" %>
-      </li>
-    <% end %>
-    <li class="list-inline-item"><%= link_to "Back", products_path(@products), class: "btn btn-secondary back-button" %></li>
-  </ul>
+  <table>
+    <thead>
+       <% count = @orders.count %>
+      <tr>
+        <td colspan="4" class="order-info">Total Orders: <%= count %></td>
+      </tr>
+      <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Order Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td> <%= order.item_name %></td>
+          <td><%= order.payment %></td>
+          <td><%= order.order_date %></td>
+          <td><%= link_to "See Details", order, class: "see-details" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div><%= link_to "Back", products_path(@products), class: "btn btn-secondary back-button" %></div>
 </div>
 
+<style>
+  th {
+    padding: 20px;
+  }
+</style>

@@ -50,7 +50,7 @@
 
   <div>
     <%= form.label :status %><br>
-    <%= form.select :status, options_for_select([[0, 'Inactive'], [1, 'Active']]), prompt: "Select status" %>
+    <%= form.select :status, options_for_select([[0, 'false'], [1, 'true']]), prompt: "Select status" %>
     <% @product.errors.full_messages_for(:status).each do |message| %>
       <div><%= message %></div>
     <% end %>
