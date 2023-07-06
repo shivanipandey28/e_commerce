@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>E-commerce Website</title>
-</head>
+ <title>E-commerce Website</title>
 <body>
 
   <div class="container">
@@ -10,35 +6,81 @@
       <div>Welcome Admin, <%= current_user.email %></div><br>
       <p>Here is the list of all sellers:</p>
       <% @sellers.each do |user| %>
-     <li>
-      <%= link_to user.email,seller_list_path(seller_id: user.id) %>
-     </li>
-    <% end %>
+        <li>
+          <%= link_to user.email,seller_list_path(seller_id: user.id) %>
+        </li>
+      <% end %>
     <% else %>
       <div>Welcome to <%= current_user.email %></div><br>
-       <% if current_user.role == "seller" %>
-         <p>Welcome, seller!, <%= current_user.email %></p>
-         <a href="<%= new_product_path %>">Create New Product</a>
-          <% seller_product_count = @products.count %>
-          <p>You have created a total  <%= seller_product_count %> products </p>
-          <ul>
-            <% @products.each do |product| %>
-              <li><%= link_to product.name, product_url(product) %></li>
-       <% end %>
-          </ul>
-
+      <% if current_user.role == "seller" %>
+        <p>Welcome, seller!, <%= current_user.email %></p>
+        <a href="<%= new_product_path %>">Create New Product</a>
+        <% seller_product_count = @products.count %>
+        <p>You have created a total <%= seller_product_count %> products </p>
+        <ul class="product-list">
+          <% @products.each do |product| %>
+            <li>
+              <%= link_to product.name, product_url(product) %>
+              <p>Price: <%= product.price %></p>
+              <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p>
+              <%= image_tag product.image class: "product-image"%>
+            </li>
+          <% end %>
+        </ul>
       <% else %>
         <h1>Products</h1>
-         <ul><% @products.each do |product| %>
-           <li><%= link_to product.name, product %>
-                <p>Price :<%= product.price %></p>
-                <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p>
-                <p><%= image_tag product.image %><p>
-           </li>
-          <% end %></ul>
-          
+        <ul class="product-list">
+          <% @products.each do |product| %>
+            <li>
+              
+               <%= link_to product, class: "btn btn-light" do %>
+              See Details
+            <% end %>
+             <p> Product: <%= product.name  %><p>
+              <p>Price: <%= product.price %></p>
+              <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p><br><br>
+              <%= image_tag product.image %><br><br>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
     <% end %>
   </div>
 </body>
 </html>
+<html>
+
+<head>
+  <style>
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style-type: none;
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .product-list li {
+      width: 200px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      color: white;
+    }
+    
+    .product-list li a {
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .product-list li p {
+      margin: 0;
+    }
+    
+    .product-list li img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>

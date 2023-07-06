@@ -1,25 +1,23 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
-  # validates :role, presence: true
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :trackable
 
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
-  has_one  :cart
+  has_one :cart
   has_many :cart_items, dependent: :destroy
-  after_create :create_cart_for_buyer
+  validates :role, presence: true
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:role])
+  after_create :create_cart_for_buyer
+  after_initialize :set_default_role, if: :new_record?
+
+  enum role: { admin: "admin", seller: "seller", buyer: "buyer" }
+
+  def set_default_role
+    self.role ||= 'buyer'
   end
-  
-  def set_defaults
-    self.role ||= :buyer
-   enum role: { admin: "admin", seller:"seller", buyer: "buyer"}
- end
 
   private
 
@@ -27,5 +25,10 @@ class User < ApplicationRecord
     if role == "buyer" && cart.nil?
       create_cart
     end
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:role])
   end
 end

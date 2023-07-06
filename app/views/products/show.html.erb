@@ -25,7 +25,7 @@
 
         <% if current_user.role =="buyer" %>
           <%= link_to "Buy",new_order_path(product_id: @product.id),  class: "btn btn-primary" %>
-          <%= form_with(model:@cart_item, url: cart_items_path(@cart), method: :post) do |f| %>
+          <%= form_with(model:@cart_item, url: add_item_path(@cart), method: :post) do |f| %>
           <%= f.hidden_field :product_id, value: @product.id %><br>
           <%= f.submit "add to cart", class: "btn btn-success" %><br><br>
           <%= link_to "Back", products_path(@products), class: "btn btn-secondary" %></li>

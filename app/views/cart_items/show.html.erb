@@ -3,14 +3,13 @@
 <head>
   <title>Order Details</title>
 </head>
-
 <body>
   <h1>Cart Product details</h1>
   <p class="cart-item-info">Name: <%= @cart_item.product.name %></p>
   <p class="order-info">Quantity: <%= @cart_item.quantity %></p>
   <ul class="button-list">
     <li class="list-inline-item">
-     <%= link_to "Remove",cart_item_path(@cart_item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+     <%= link_to "Remove",item_remove_path(@cart_item), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
     </li>
     <br><br>
     <li class="list-inline-item">
