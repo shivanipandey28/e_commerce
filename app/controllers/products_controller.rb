@@ -19,34 +19,34 @@ class ProductsController < ApplicationController
     end
   end
  
-  def show
-    @product = Product.find(params[:id])
-    @cart = Cart.find_by(user_id: current_user.id)
-    @cart_item = CartItem.new
-  end
+ def show
+  @product = Product.find(params[:id])
+  @cart = Cart.find_by(user_id: current_user.id)
+  @cart_item = CartItem.new
+ end
 
   def new
-    @product = current_user.products.new
+  @product = current_user.products.new
   end
 
   def create
-    @product = current_user.products.new(product_params)
-    if @product.save!
-     redirect_to @product, notice: "Product created successfully."
-    else
-     render :new, status: :unprocessable_entity
-    end
+  @product = current_user.products.new(product_params)
+  if @product.save!
+   redirect_to @product, notice: "Product created successfully."
+  else
+   render :new, status: :unprocessable_entity
+  end
   end
 
   def edit
   end
 
   def update
-     if @product.update(product_params)
-      redirect_to @product, notice: "Product updated successfully."
-     else
-      render :edit, status: :unprocessable_entity
-    end
+   if @product.update(product_params)
+    redirect_to @product, notice: "Product updated successfully."
+   else
+    render :edit, status: :unprocessable_entity
+   end
   end
 
   def destroy
@@ -72,5 +72,4 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
   end
-
 end
