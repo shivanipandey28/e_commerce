@@ -77,3 +77,14 @@ gem "devise", "~> 4.9"
 gem "debug"
 gem "byebug"
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  #gem 'coverage'
+end
+
+gem 'simplecov', require: false, group: :test
+group :test do
+  gem 'shoulda-matchers', '~> 5.3'
+    gem 'factory_bot_rails'
+end
