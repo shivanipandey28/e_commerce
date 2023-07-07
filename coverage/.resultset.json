@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/developer/project/e_commerce/spec/models/product_spec.rb": {
+      "/home/developer/project/e_commerce/spec/models/order_spec.rb": {
         "lines": [
           1,
           null,
@@ -9,12 +9,16 @@
           1,
           2,
           2,
-          2,
-          2,
           null,
           null,
           1,
           2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
           2,
           null,
           null
@@ -613,15 +617,6 @@
           null
         ]
       },
-      "/home/developer/project/e_commerce/spec/factories/products.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/developer/project/e_commerce/config/routes.rb": {
         "lines": [
           1,
@@ -711,24 +706,6 @@
           null
         ]
       },
-      "/home/developer/project/e_commerce/app/models/product.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/developer/project/e_commerce/app/models/category.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
       "/home/developer/project/e_commerce/app/models/order.rb": {
         "lines": [
           1,
@@ -745,8 +722,19 @@
           null,
           null
         ]
+      },
+      "/home/developer/project/e_commerce/app/models/product.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1688736958
+    "timestamp": 1688739387
   }
 }
