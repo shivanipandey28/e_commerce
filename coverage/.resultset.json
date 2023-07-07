@@ -3,6 +3,7 @@
     "coverage": {
       "/home/developer/project/e_commerce/spec/models/user_spec.rb": {
         "lines": [
+<<<<<<< HEAD
           1,
           null,
           1,
@@ -815,5 +816,12 @@
       }
     },
     "timestamp": 1688734568
+=======
+
+        ]
+      }
+    },
+    "timestamp": 1688734182
+>>>>>>> b7261aca21022166b4039d372d5039666193c84f
   }
 }
