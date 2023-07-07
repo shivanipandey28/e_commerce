@@ -1,32 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/developer/project/e_commerce/spec/models/user_spec.rb": {
+      "/home/developer/project/e_commerce/spec/models/product_spec.rb": {
         "lines": [
-<<<<<<< HEAD
           1,
           null,
           1,
           1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
+          2,
           2,
           2,
           2,
@@ -34,23 +15,7 @@
           null,
           1,
           2,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
+          2,
           null,
           null
         ]
@@ -648,6 +613,15 @@
           null
         ]
       },
+      "/home/developer/project/e_commerce/spec/factories/products.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/developer/project/e_commerce/config/routes.rb": {
         "lines": [
           1,
@@ -684,14 +658,14 @@
           1,
           null,
           1,
-          9,
+          0,
           null,
           null,
           1,
           null,
           1,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           null,
@@ -701,7 +675,7 @@
           null,
           null,
           1,
-          2,
+          0,
           null,
           null
         ]
@@ -737,52 +711,19 @@
           null
         ]
       },
-      "/home/developer/project/e_commerce/app/mailers/user_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          2,
-          2,
-          2,
-          null,
-          null
-        ]
-      },
-      "/home/developer/project/e_commerce/app/mailers/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/developer/project/e_commerce/app/models/cart.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/developer/project/e_commerce/app/models/product.rb": {
         "lines": [
           1,
           1,
           1,
           1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/app/models/category.rb": {
+        "lines": [
           1,
           1,
           null
@@ -804,24 +745,8 @@
           null,
           null
         ]
-      },
-      "/home/developer/project/e_commerce/app/models/cart_item.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1688734568
-=======
-
-        ]
-      }
-    },
-    "timestamp": 1688734182
->>>>>>> b7261aca21022166b4039d372d5039666193c84f
+    "timestamp": 1688736958
   }
 }
