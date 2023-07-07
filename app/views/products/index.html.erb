@@ -11,6 +11,8 @@
         </li>
       <% end %>
     <% else %>
+
+
       <div>Welcome to <%= current_user.email %></div><br>
       <% if current_user.role == "seller" %>
         <p>Welcome, seller!, <%= current_user.email %></p>
@@ -19,33 +21,35 @@
         <p>You have created a total <%= seller_product_count %> products </p>
         <ul class="product-list">
           <% @products.each do |product| %>
-            <li>
-              <%= link_to product.name, product_url(product) %>
+            <li> <%= image_tag product.image %><br> <br>
+              <%= link_to product.name, product_url(product),class: "btn btn-light" %>
               <p>Price: <%= product.price %></p>
               <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p>
-              <%= image_tag product.image class: "product-image"%>
             </li>
           <% end %>
         </ul>
       <% else %>
-        <h1>Products</h1>
+
+
+        <h1>All Products </h1>
         <ul class="product-list">
           <% @products.each do |product| %>
             <li>
-              
+              <%= image_tag product.image %><br><br> 
                <%= link_to product, class: "btn btn-light" do %>
               See Details
             <% end %>
              <p> Product: <%= product.name  %><p>
               <p>Price: <%= product.price %></p>
               <p>Status: <%= product.status ? 'Available' : 'Out of Stock' %></p><br><br>
-              <%= image_tag product.image %><br><br>
+             
             </li>
           <% end %>
         </ul>
       <% end %>
     <% end %>
   </div>
+  
 </body>
 </html>
 <html>
@@ -60,7 +64,7 @@
       padding: 0;
       background-color: rgba(0, 0, 0, 0.8);
     }
-    
+
     .product-list li {
       width: 200px;
       margin-bottom: 20px;
@@ -68,16 +72,16 @@
       border: 1px solid #ccc;
       color: white;
     }
-    
+
     .product-list li a {
       text-decoration: none;
       color: #333;
     }
-    
+
     .product-list li p {
       margin: 0;
     }
-    
+
     .product-list li img {
       max-width: 100%;
       height: auto;
