@@ -16,12 +16,13 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
-    @order.product_id = params[:order][:product_id]
+    # @order.product_id = params[:order][:product_id]
     @order.order_date = Date.current
     if @order.save
      redirect_to @order, notice: "order placed successfully."
     else
-     render :new, status: :unprocessable_entity
+     #render :new, status: :unprocessable_entity
+     redirect_to @order, notice: "order not placed, please fill the all details befor placed"
     end
   end
 

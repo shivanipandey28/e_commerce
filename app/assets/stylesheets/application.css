@@ -40,13 +40,15 @@ a.{
 }
 
 body{
-       background-image: url("finalecom.jpg");
-       background-color: black!important;
+/*       background-image: url("finalecom.jpg");*/
+/*       background-image: url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.shutterstock.com%2Fimage-photo%2Fempty-shopping-cart-modern-smartphone-260nw-1930569053.jpg&tbnid=ik3DzQZUqojkXM&vet=12ahUKEwjkkKS0gPz_AhXdnWMGHcgxA2MQMygEegUIARDjAQ..i&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Forange-ecommerce&docid=H4bHKwNSB3PdjM&w=390&h=280&q=background%20image%20e%20commerce&hl=en&ved=2ahUKEwjkkKS0gPz_AhXdnWMGHcgxA2MQMygEegUIARDjAQ");*/
+/*        background-color: black!important;*/
+/* background-color: rgba(0, 0, 0, 0.8);*/
         background-color:transparent;
         background-repeat: no-repeat;
         background-size: 100% 100%;
         height: 100vh;
-        opacity: 1;
+         
 
     }
     
@@ -80,3 +82,6 @@ body{
 
 }
 
+img:hover {
+  opacity: 0.5;
+}

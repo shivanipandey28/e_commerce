@@ -14,7 +14,7 @@ class CartItemsController < ApplicationController
   end
 
   def add_item
-    if @cart_item =current_user.cart.cart_items.find_by(product_id: params[:cart_item][:product_id])
+    if @cart_item = current_user.cart.cart_items.find_by(product_id: params[:cart_item][:product_id])
        @cart_item.quantity += 1
       if @cart_item.save
          redirect_to cart_items_path, notice: "Item quantity updated in the cart successfully."
