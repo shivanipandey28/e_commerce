@@ -1,24 +1,13 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/developer/project/e_commerce/spec/models/order_spec.rb": {
+      "/home/developer/project/e_commerce/spec/models/cart_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
           2,
-          2,
-          null,
-          null,
-          1,
-          2,
-          2,
-          2,
-          2,
-          2,
-          2,
-          null,
           2,
           null,
           null
@@ -617,6 +606,24 @@
           null
         ]
       },
+      "/home/developer/project/e_commerce/spec/factories/carts.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/spec/factories/products.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/home/developer/project/e_commerce/config/routes.rb": {
         "lines": [
           1,
@@ -653,14 +660,14 @@
           1,
           null,
           1,
-          0,
+          9,
           null,
           null,
           1,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           null,
@@ -670,7 +677,7 @@
           null,
           null,
           1,
-          0,
+          2,
           null,
           null
         ]
@@ -706,6 +713,37 @@
           null
         ]
       },
+      "/home/developer/project/e_commerce/app/models/cart.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/spec/models/order_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/developer/project/e_commerce/app/models/order.rb": {
         "lines": [
           1,
@@ -723,6 +761,25 @@
           null
         ]
       },
+      "/home/developer/project/e_commerce/spec/models/product_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
       "/home/developer/project/e_commerce/app/models/product.rb": {
         "lines": [
           1,
@@ -733,8 +790,98 @@
           1,
           null
         ]
+      },
+      "/home/developer/project/e_commerce/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/app/models/cart_item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/app/models/category.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/app/mailers/user_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/home/developer/project/e_commerce/app/mailers/application_mailer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1688739387
+    "timestamp": 1688966523
   }
 }
