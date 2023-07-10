@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-10T11:19:12+05:30">2023-07-10T11:19:12+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-07-10T12:00:11+05:30">2023-07-10T12:00:11+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  94.44%
+  94.21%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.97
+         0.95
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>126</b> relevant lines,
-    <span class="green"><b>119</b> lines covered</span> and
+    <b>121</b> relevant lines,
+    <span class="green"><b>114</b> lines covered</span> and
     <span class="red"><b>7</b> lines missed. </span>
     (<span class="green">
-  94.44%
+  94.21%
 </span>
 )
   </div>
@@ -126,22 +126,11 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#73af115a29d19a95ff0208da6d1c737ad8fa0111" class="src_link" title="app/models/cart.rb">app/models/cart.rb</a></td>
+            <td class="strong t-file__name"><a href="#1460d732dd0c846f14a71e8dff5469e5c263180e" class="src_link" title="app/models/category.rb">app/models/category.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">4</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
-            
-          </tr>
-        
-          <tr class="t-file">
-            <td class="strong t-file__name"><a href="#18f1ececbe39045e88893d440d5a384745d38ff0" class="src_link" title="app/models/cart_item.rb">app/models/cart_item.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">4</td>
-            <td class="cell--number">4</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">2</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -313,6 +302,17 @@
           </tr>
         
           <tr class="t-file">
+            <td class="strong t-file__name"><a href="#430c4effc01d45863c40214019ffc2f7d9d55836" class="src_link" title="spec/factories/categories.rb">spec/factories/categories.rb</a></td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
             <td class="strong t-file__name"><a href="#31de79e3b19173e791816abccc33332bb921a27a" class="src_link" title="spec/factories/products.rb">spec/factories/products.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
             <td class="cell--number">5</td>
@@ -324,13 +324,13 @@
           </tr>
         
           <tr class="t-file">
-            <td class="strong t-file__name"><a href="#e36fb615a88a0a2abf9abd4cac6ef05a1a21df52" class="src_link" title="spec/models/cart_item_spec.rb">spec/models/cart_item_spec.rb</a></td>
+            <td class="strong t-file__name"><a href="#874b1ffa7a02790c475c6ce03424c82e952b7274" class="src_link" title="spec/models/category_spec.rb">spec/models/category_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">9</td>
-            <td class="cell--number">6</td>
-            <td class="cell--number">6</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">4</td>
+            <td class="cell--number">4</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.50</td>
+            <td class="cell--number">1.25</td>
             
           </tr>
         
@@ -638,9 +638,9 @@
 </div>
 
       
-        <div class="source_table" id="73af115a29d19a95ff0208da6d1c737ad8fa0111">
+        <div class="source_table" id="1460d732dd0c846f14a71e8dff5469e5c263180e">
   <div class="header">
-    <h3>app/models/cart.rb</h3>
+    <h3>app/models/category.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -652,8 +652,8 @@
     
 
     <div class="t-line-summary">
-      <b>3</b> relevant lines.
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>2</b> relevant lines.
+      <span class="green"><b>2</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -671,7 +671,7 @@
 
             
 
-            <code class="ruby">class Cart &lt; ApplicationRecord</code>
+            <code class="ruby">class Category &lt; ApplicationRecord</code>
           </li>
         </div>
       
@@ -682,109 +682,12 @@
 
             
 
-            <code class="ruby">  belongs_to :user</code>
+            <code class="ruby">  has_many :products, dependent: :destroy</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  has_many :cart_items, dependent: :destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="4">
-            
-            
-
-            
-
-            <code class="ruby">end</code>
-          </li>
-        </div>
-      
-    </ol>
-  </pre>
-</div>
-
-      
-        <div class="source_table" id="18f1ececbe39045e88893d440d5a384745d38ff0">
-  <div class="header">
-    <h3>app/models/cart_item.rb</h3>
-    <h4>
-      <span class="green">
-  100.0%
-</span>
-
-      lines covered
-    </h4>
-
-    
-
-    <div class="t-line-summary">
-      <b>4</b> relevant lines.
-      <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-
-    
-
-  </div>
-
-  <pre>
-    <ol>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="1">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">class CartItem &lt; ApplicationRecord</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="2">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  belongs_to :cart</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  belongs_to :product</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  belongs_to :user</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="5">
+          <li class="never" data-hits="" data-linenumber="3">
             
             
 
@@ -7248,6 +7151,92 @@
 </div>
 
       
+        <div class="source_table" id="430c4effc01d45863c40214019ffc2f7d9d55836">
+  <div class="header">
+    <h3>spec/factories/categories.rb</h3>
+    <h4>
+      <span class="green">
+  100.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>2</b> relevant lines.
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">FactoryBot.define do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  factory :category do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="3">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="4">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
         <div class="source_table" id="31de79e3b19173e791816abccc33332bb921a27a">
   <div class="header">
     <h3>spec/factories/products.rb</h3>
@@ -7334,9 +7323,9 @@
 </div>
 
       
-        <div class="source_table" id="e36fb615a88a0a2abf9abd4cac6ef05a1a21df52">
+        <div class="source_table" id="874b1ffa7a02790c475c6ce03424c82e952b7274">
   <div class="header">
-    <h3>spec/models/cart_item_spec.rb</h3>
+    <h3>spec/models/category_spec.rb</h3>
     <h4>
       <span class="green">
   100.0%
@@ -7348,8 +7337,8 @@
     
 
     <div class="t-line-summary">
-      <b>6</b> relevant lines.
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>4</b> relevant lines.
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -7389,7 +7378,7 @@
 
             
 
-            <code class="ruby">RSpec.describe CartItem, type: :model do</code>
+            <code class="ruby">RSpec.describe Category, type: :model do</code>
           </li>
         </div>
       
@@ -7411,34 +7400,12 @@
 
             
 
-            <code class="ruby">    it {should belong_to(:cart)}</code>
+            <code class="ruby">    it {should have_many(:products)}</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="6">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    it { should belong_to(:product)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="7">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    it { should belong_to(:user)}</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="6">
             
             
 
@@ -7449,7 +7416,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="9">
+          <li class="never" data-hits="" data-linenumber="7">
             
             
 
