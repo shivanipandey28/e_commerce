@@ -3,32 +3,26 @@ require 'rails_helper'
 RSpec.describe CartItemsController, type: :controller do
   describe "GET #index" do
     context "when user is authenticated" do
-       before do
-    user = create(:user)
-    sign_in user
-
-    cart = create(:cart, user: user)
-    cart_item1 = create(:cart_item, cart: cart)
-    cart_item2 = create(:cart_item, cart: cart)
-
-    get :index
+      before do
+      user = create(:user)
+      sign_in user
+      cart = create(:cart, user: user)
+      cart_item1 = create(:cart_item, cart: cart)
+      cart_item2 = create(:cart_item, cart: cart)
+      get :index
       end
 
-    # it "assigns the user's cart items to cart_items" do
-    #   expect(assigns(:cart_items)).to match_array([cart_item1, cart_item2])
-    # end
-
-    it "renders the index template" do
-      expect(response).to render_template(:index)
-     end
+      it "renders the index template" do
+        expect(response).to render_template(:index)
+      end
     end
 
-   context "when user is not authenticated" do
-    it "redirects to the sign-in page" do
-      get :index
-      expect(response).to redirect_to(new_user_session_path)
+    context "when user is not authenticated" do
+      it "redirects to the sign-in page" do
+       get :index
+       expect(response).to redirect_to(new_user_session_path)
+      end
     end
-   end
   end
 
   describe "DELETE #item_remove" do
@@ -40,7 +34,7 @@ RSpec.describe CartItemsController, type: :controller do
       sign_in user
     end
 
-     context "when cart item is successfully destroyed" do
+    context "when cart item is successfully destroyed" do
       it "redirects to the root path with a success notice" do
         expect {
           delete :item_remove, params: { id: cart_item.id }
