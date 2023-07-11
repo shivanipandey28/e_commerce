@@ -1,4 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'devise'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -70,3 +71,23 @@ Shoulda::Matchers.configure do |config|
       with.library :rails
     end
   end
+RSpec.configure do |config|
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.use_transactional_fixtures = true
+  # ... other configuration options ...
+
+  # Include FactoryBot syntax methods
+  config.include FactoryBot::Syntax::Methods
+
+  # Include Devise test helpers for request specs
+    config.include Devise::Test::ControllerHelpers, type: :controller
+
+
+  # Set up Warden for request specs
+  config.before(:each, type: :request) do
+    include Warden::Test::Helpers
+    Warden.test_mode!
+  end
+
+  # ... other configuration options ...
+end
