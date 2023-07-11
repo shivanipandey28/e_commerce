@@ -71,4 +71,3 @@ RSpec.describe OrdersController, type: :controller do
   end
   end
 end
-
