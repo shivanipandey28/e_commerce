@@ -87,4 +87,7 @@ gem 'simplecov', require: false, group: :test
 group :test do
   gem 'shoulda-matchers', '~> 5.3'
     gem 'factory_bot_rails'
+    gem 'rspec-rails'
+    gem "devise", "~> 4.9"
+    gem 'rails-controller-testing'
 end
